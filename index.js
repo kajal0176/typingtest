@@ -8,14 +8,10 @@ const show_sentence = document.querySelector('#showSentence');
 let startTime, endTime, totalTimeTaken;
 
 
-const sentences = ['The quick brown fox jumps over the lazy dog 1',
-    'The quick brown fox jumps over the lazy dog 2',
-    'The quick brown fox jumps over the lazy dog 3 ']
-
-
-
 const calculateTypingSpeed = (time_taken) => {
+    //trim()  is used to remove leading and trailing whitespace
     let  totalWords = typing_ground.value.trim();
+    //split(" ") function splits the sentence string into an array of words using a space (" ") as the delimiter.
     let actualWords = totalWords === '' ? 0 : totalWords.split(" ").length;
 
     if(actualWords !== 0) {
@@ -45,11 +41,33 @@ const endTypingTest = () => {
 }
 
 
-//arrow function
+
+let list=[];
+//fetch() function to make an HTTP request to the "Bacon Ipsum" API and retrieve random sentences
+// Initiating an HTTP GET request to the specified URL
+fetch('https://baconipsum.com/api/?type=all-meat&sentences=5') //It's trying to get data from the API.
+  //.then() method is used to handle the response after the fetch request is complete
+  //It takes a callback function as an argument. 
+  //In this line, it takes the response object returned by the fetch request and uses
+  // its .json() method to parse the response data as JSON.
+.then(response => response.json())
+
+// the second .then() method handles the JSON data 
+//received from the previous step. 
+//It takes the parsed data (which should be an array of sentences) 
+//and assigns it to the variable list
+  .then(data => {
+   list = data;
+   // console.log(list);
+  })
+  //.catch() method is used to handle errors that might occur during the fetch process
+  .catch(error => console.error('Error fetching data:', error));
+
+  //arrow function
 const startTyping = () => {
-    let randomNumber = Math.floor(Math.random() * sentences.length);
+    let randomNumber = Math.floor(Math.random() * list.length);
     // console.log(randomNumber);
-    show_sentence.innerHTML = sentences[randomNumber];
+    show_sentence.innerHTML = list[randomNumber];
 
     let date = new Date();
     startTime = date.getTime();
@@ -60,8 +78,11 @@ const startTyping = () => {
 
 
 
-
-btn.addEventListener('click', () => {
+//A JavaScript event listener is a function or method 
+//that waits for a specific event to occur on a particular HTML
+// element and then executes a designated piece of code (callback function) in response to 
+//that event. Events can be user interactions like clicks, key presses, mouse movements, or changes in the state of an element.
+const handleClick=()=>{
     switch (btn.innerText.toLowerCase()) {
         case "start":
             typing_ground.removeAttribute('disabled');
@@ -73,4 +94,5 @@ btn.addEventListener('click', () => {
             endTypingTest();
             break;
     }
-})
+}
+btn.addEventListener('click',handleClick);
