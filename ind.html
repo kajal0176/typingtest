@@ -1,31 +1,26 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typing test</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>typing test</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-       <div class="maindiv">
-        <div class="stime">
-            <h1 id="starttime"></h1>
-        </div>
-        <div class="etime">
-            <h1 id="endtime"></h1>
-        </div>
-        <div class="center">
-        <h1>welcome to typing speed test</h1>
-        <h2 id="msg"></h2>
-        <textarea id="mywords" col="100" rows="10" placeholder="remember me"></textarea>
+<section class="main-body">
+    <h2>typing Speed test</h2>
+    <p id="showSentence"></p>
+
+    <div class="typing_section">
+        <label for="textarea"></label>
+        <textarea name="textarea" id="textarea" cols="30" rows="10" disabled></textarea>
         <br>
-        <button id="btn" class="mainbtn">start</button>
-        </div>
-       </div>
-        
-        <script src="index.js"></script>
-    </body>
+        <button id="btn">Start</button>
+    </div>
+
+    <p id="score"></p>
+</section>
+
+<script src="index.js"></script>
+</body>
 </html>
