@@ -26,8 +26,7 @@ body{
 #textarea{
     border: .1rem solid #A084DC;
     border-radius: 1rem;
-    max-width: 50rem;
-    width: 50rem;
+    width: 90%;
     height: 20rem;
     padding: 1rem 2rem;
     font-size: 1.6rem;
