@@ -67,8 +67,8 @@ const startTyping = () => {
 
   let date = new Date();
   startTime = date.getTime();
-
   btn.innerText = "Done";
+  score.innerHTML="";
 };
 
 //A JavaScript event listener is a function or method
