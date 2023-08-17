@@ -56,5 +56,15 @@ h2{
     margin: 2rem 0;
     letter-spacing: .02rem;
     text-align: center;
-    color: red;
+    color: rgba(46, 40, 40, 0.682);
 }
+.output {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    overflow: hidden;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
